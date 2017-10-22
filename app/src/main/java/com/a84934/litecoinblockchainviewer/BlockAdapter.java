@@ -5,16 +5,31 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-class BlockAdapter extends RecyclerView.Adapter<BlockAdapter.BlockVH> {
+import com.a84934.litecoinblockchainviewer.Models.BlockDisplayInfo;
 
-    interface OnBlockClickListener {
-        void blockClicked(Block block);
+import java.util.List;
+
+import io.realm.RealmResults;
+
+public class BlockAdapter extends RecyclerView.Adapter<BlockAdapter.BlockVH> {
+
+    RealmResults<BlockDisplayInfo> blocks;
+
+    public interface OnBlockClickListener {
+        void blockClicked(BlockDisplayInfo block);
     }
 
     final OnBlockClickListener listener;
-    BlockAdapter(OnBlockClickListener listener){
+
+    public BlockAdapter(RealmResults<BlockDisplayInfo> blocks, OnBlockClickListener listener){
         super();
         this.listener = listener;
+        this.blocks = blocks;
+    }
+
+    public void setBlocks(RealmResults<BlockDisplayInfo> newBlocks){
+        this.blocks = newBlocks;
+        this.notifyDataSetChanged();
     }
 
     @Override
@@ -35,7 +50,16 @@ class BlockAdapter extends RecyclerView.Adapter<BlockAdapter.BlockVH> {
 
     @Override
     public int getItemCount() {
-        return 10;
+        return blocks.size();
+    }
+
+    public int maxHeight(){
+        if(blocks.isEmpty()){
+            return -1;
+        }
+        else {
+            return blocks.get(0).block_no;
+        }
     }
 
     class BlockVH extends RecyclerView.ViewHolder {

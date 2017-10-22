@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">LitecoinBlockchainViewer</string>
+    <string name="network_status_call_fail">Unable to get network status</string>
 </resources>
