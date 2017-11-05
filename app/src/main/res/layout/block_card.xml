@@ -4,65 +4,54 @@
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="160dp"
+    android:layout_height="wrap_content"
     android:clipToPadding="false"
     android:padding="16dp"
     >
 
     <android.support.v7.widget.CardView
-        card_view:cardElevation="16dp"
+        card_view:cardElevation="8dp"
         card_view:contentPadding="8dp"
         card_view:cardBackgroundColor="#ecf0f1"
         card_view:cardCornerRadius="4dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <TextView
+                android:id="@+id/hashTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="block hash"
                 android:elevation="16dp"
-                android:background="@color/colorAccent"
                 />
             <TextView
+                android:id="@+id/heightTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="height"
                 />
             <TextView
+                android:id="@+id/timeTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="time ago"
+                android:text="time"
                 />
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="time happened"
-                />
-            <TextView
+                android:id="@+id/transactionCountTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="transaction count"
                 />
             <TextView
+                android:id="@+id/totalCoinMovedTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="total transactions"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="who mined"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="memory size"
                 />
 
         </LinearLayout>

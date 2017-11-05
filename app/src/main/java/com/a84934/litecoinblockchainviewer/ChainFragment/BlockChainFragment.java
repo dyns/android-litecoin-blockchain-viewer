@@ -81,6 +81,8 @@ public class BlockChainFragment extends Fragment {
                 refreshHeight();
             }
         });
+
+        //refreshHeight();
     }
 
     private void refreshHeight(){
@@ -165,6 +167,9 @@ public class BlockChainFragment extends Fragment {
     private void downloadBlocks(Point range, final OnBlocksDownloadedListener listener){
         swipeRefreshLayout.setRefreshing(true);
         realm.beginTransaction();
+
+        range.x -= 1;
+        range.y -= 1;
 
         final AtomicInteger completed = new AtomicInteger(0);
         final int total = (range.y - range.x) + 1;
